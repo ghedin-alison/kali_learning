@@ -1,0 +1,24 @@
+enumeração de serviços é basicamente coletar diversas informações sobre o alvo;
+maltego, netdiscover, nmap: aplicativos para gerar informações sobre alvos;
+no kali há o menu 01 Information gathering;
+
+DNSENUM:
+cd /usr/bin
+./dnsenum --enum teste.com.br
+essas informações são publicas e obtidas de maneira rápida
+
+outro comando:
+fierce -dns teste.com.br(esse comando não funcionou, precisa descobrir o que mudou)
+verificar onde estão configurados DNS do site, zonas de transferência, wildcards, performance
+
+**********************************************************************
+dmitry: verificar intervalos de rede
+dmitry -wnspb nome_do_site -o /home/alison/documentos: salvando informações do site em um relatorio no diretorio documentos.
+scapy: tbem enumera serviços como o dmitry
+para acessar, no teminal:
+scapy
+>> ans, unans=sr(IP(dst='www.targethost.com/30', ttl=(1,6))/TCP())
+>> ans.make_table(lambda s,r: (s.dst, s.ttl, r.src))
+O scapy é uma lib python, tem uma documentação de uso. Ela possibilita emitir graficos de DNS de um site.
+
+
